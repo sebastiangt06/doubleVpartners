@@ -1,5 +1,8 @@
+using System.Text;
 using DoubleV.Infrastructure;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +29,29 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(DoubleV.Application.Command.Login.LoginCommand).Assembly)
 );
 
+// JWT
+var jwt = builder.Configuration.GetSection("Jwt");
+var key = Encoding.UTF8.GetBytes(jwt["Key"]!);
+
+builder.Services
+  .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+  .AddJwtBearer(options =>
+  {
+      options.TokenValidationParameters = new TokenValidationParameters
+      {
+          ValidateIssuer = true,
+          ValidateAudience = true,
+          ValidateLifetime = true,
+          ValidateIssuerSigningKey = true,
+          ValidIssuer = jwt["Issuer"],
+          ValidAudience = jwt["Audience"],
+          IssuerSigningKey = new SymmetricSecurityKey(key),
+          ClockSkew = TimeSpan.FromMinutes(1)
+      };
+  });
+
+builder.Services.AddAuthorization();
+
 // CORS (para Angular)
 var allowedOrigin = builder.Configuration["AllowedOrigins"] ?? "http://localhost:4200";
 builder.Services.AddCors(options =>
@@ -51,7 +77,9 @@ app.UseHttpsRedirection();
 app.UseRouting();
 app.UseCors("CorsPolicy");
 
-// app.UseAuthorization(); // solo si luego agregas auth
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

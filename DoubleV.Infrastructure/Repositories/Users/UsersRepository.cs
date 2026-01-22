@@ -24,5 +24,18 @@ namespace DoubleV.Infrastructure.Repositories.Persons
                         .AsNoTracking()
                         .FirstOrDefaultAsync(x => x.UserName == request.Username);
         }
+
+        public Task<bool> UserNameExistsAsync(string userName) 
+            => _dbContext.Users!.AnyAsync(u => u.UserName == userName);
+
+        public Task<User?> GetByUserNameAsync(string userName)
+            => _dbContext.Users!.AsNoTracking().FirstOrDefaultAsync(u => u.UserName == userName);
+
+        public async Task<User> CreateAsync(User user)
+        {
+            _dbContext.Users!.Add(user);
+            await _dbContext.SaveChangesAsync();
+            return user;
+        }
     }
 }

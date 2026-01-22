@@ -6,5 +6,7 @@ namespace DoubleV.Domain.Services.Interfaces.Users
     public interface IUsersRepository
     {
         Task<User?> GetByUserNameAsync(LoginRequest request);
+        Task<bool> UserNameExistsAsync(string userName);
+        Task<User> CreateAsync(User user);
     }
 }

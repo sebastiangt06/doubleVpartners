@@ -1,35 +1,38 @@
 using DoubleV.Application.ExceptionManager;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
+using DoubleV.Application.Command.Login;
+using DoubleV.Domain.DTO.Login;
+using DoubleV.Domain.DTO.Users;
+using DoubleV.Application.Command.Users;
 using Microsoft.AspNetCore.Authorization;
-using DoubleV.Application.Command.Persons;
 
 namespace DoubleV.API.Controllers
 {
-
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [TypeFilter(typeof(ExceptionManager))]
-    public class PersonsController : ControllerBase
+    public class UsersController : ControllerBase
     {
         #region fields
         private readonly IMediator _mediator;
 
         #endregion
-        public PersonsController(IMediator mediator)
+        public UsersController(IMediator mediator)
         {
             _mediator = mediator;
-        }  
-        
-        [HttpGet("get")]
+        }
+
+        [HttpPost("create")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ExceptionManager))]
         [ProducesResponseType(StatusCodes.Status409Conflict, Type = typeof(ExceptionManager))]
-        public async Task<IActionResult> GetPersons()
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest createUserRequest)
         {
-            return await _mediator.Send( new GetPersonsCommand
+            return await _mediator.Send( new CreateUserCommand
             {
+                CreateUserRequest = createUserRequest
             });
         }
     }

@@ -29,5 +29,18 @@ namespace DoubleV.Infrastructure.Repositories.Persons
 
             return result;
         }
+
+        public Task<bool> EmailExistsAsync(string email)
+            => _dbContext.Persons!.AnyAsync(p => p.Email == email);
+
+        public Task<bool> IdentificationExistsAsync(string type, string number)
+            => _dbContext.Persons!.AnyAsync(p => p.IdentificationType == type && p.Identification == number);
+
+        public async Task<Person> CreateAsync(Person person)
+        {
+            _dbContext.Persons!.Add(person);
+            await _dbContext.SaveChangesAsync();
+            return person;
+        }
     }
 }

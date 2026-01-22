@@ -7,6 +7,8 @@ using DoubleV.Domain.Services.Interfaces.Persons;
 using DoubleV.Domain.Services.Interfaces.Users;
 using DoubleV.Infrastructure.Security;
 using DoubleV.Application.Common.Interfaces;
+using DoubleV.Infrastructure.Repositories;
+using DoubleV.Application.Interfaces;
 
 namespace DoubleV.Infrastructure
 {
@@ -26,6 +28,10 @@ namespace DoubleV.Infrastructure
             services.AddScoped<IPersonsRepository, PersonsRepository>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IPasswordService, PasswordService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IJwtTokenService, JwtTokenService>();
+
+
             return services;
         }
     }
