@@ -9,11 +9,14 @@ import { RegisterRequest } from '../models/RegisterRequest';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  register(payload: RegisterRequest) {
-    // Ajusta la ruta al endpoint real que creaste:
-    // ejemplo: /api/users/register  o /api/users/create
-    return this.http.post<any>(`${environment.apiUrl}/users/register`, payload).pipe(
-      map(res => unwrap<any>(res))
+  register(payload: any) {
+    return this.http.post<any>(`${environment.apiUrl}/Users/create`, payload).pipe(
+      map(res => this.unwrap(res))
     );
+  }
+
+  private unwrap<T>(res: any): T {
+
+    return (res?.data ?? res?.result ?? res) as T;
   }
 }

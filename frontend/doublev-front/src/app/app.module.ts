@@ -12,6 +12,7 @@ import { PersonsComponent } from '../app/pages/persons/persons.component';
 
 import { AuthInterceptor } from './auth.interceptor';
 
+
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent, PersonsComponent],
   imports: [BrowserModule, HttpClientModule, ReactiveFormsModule, AppRoutingModule],

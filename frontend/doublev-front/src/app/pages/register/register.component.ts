@@ -24,25 +24,39 @@ export class RegisterComponent {
 
   constructor(private fb: FormBuilder, private users: UsersService, private router: Router) {}
 
-  submit() {
-    this.error = '';
-    this.success = '';
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
+submit() {
+  this.error = '';
+  this.success = '';
 
-    this.loading = true;
-    this.users.register(this.form.value as any).subscribe({
-      next: () => {
-        this.loading = false;
-        this.success = 'Usuario creado. Ahora puedes iniciar sesión.';
-        setTimeout(() => this.router.navigate(['/login']), 700);
-      },
-      error: (err) => {
-        this.loading = false;
-        this.error = err?.error?.message ?? 'No fue posible registrar.';
-      }
-    });
+  if (this.form.invalid) {
+    this.form.markAllAsTouched();
+    return;
   }
+
+  this.loading = true;
+
+  const payload = {
+    name: this.form.value.name!,
+    lastName: this.form.value.lastName!,
+    identificationType: this.form.value.identificationType!,
+    identification: this.form.value.identification!,
+    email: this.form.value.email!,
+    userName: this.form.value.userName!,
+    pass: this.form.value.pass!
+  };
+
+  this.users.register(payload).subscribe({
+    next: () => {
+      this.loading = false;
+      this.success = 'Usuario creado. Ahora puedes iniciar sesión.';
+      setTimeout(() => this.router.navigate(['/login']), 700);
+    },
+    error: (err) => {
+      this.loading = false;
+
+      this.error = err?.error?.message ?? err?.error ?? 'No fue posible registrar.';
+    }
+  });
+}
+
 }

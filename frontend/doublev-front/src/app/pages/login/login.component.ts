@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
@@ -16,7 +17,7 @@ export class LoginComponent {
     password: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
 
   submit() {
     this.error = '';
@@ -26,15 +27,29 @@ export class LoginComponent {
     }
 
     this.loading = true;
-    this.auth.login(this.form.value as any).subscribe({
+
+    const payload = {
+      username: this.form.value.userName!,
+      password: this.form.value.password!
+    };
+
+    this.auth.login(payload).subscribe({
       next: () => {
         this.loading = false;
         this.router.navigate(['/persons']);
       },
       error: (err) => {
         this.loading = false;
-        this.error = err?.error?.message ?? 'No fue posible iniciar sesión.';
+
+        if (err?.status === 401) {
+          this.error = 'Credenciales inválidas';
+          return;
+        }
+        this.error = err?.error?.message ;
       }
     });
   }
+
+
+
 }

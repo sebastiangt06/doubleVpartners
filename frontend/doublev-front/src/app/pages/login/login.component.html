@@ -7,7 +7,7 @@
       {{ error }}
     </div>
 
-    <form (ngSubmit)="submit()" class="mt-6 space-y-4">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="mt-6 space-y-4">
       <div>
         <label class="block text-sm font-medium mb-1">Usuario</label>
         <input

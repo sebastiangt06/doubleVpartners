@@ -35,7 +35,7 @@ export class PersonsComponent implements OnInit {
       error: (err) => {
         this.loading = false;
 
-        // Si expira token o no autorizado:
+        // unauthorized or token expired:
         if (err?.status === 401) {
           this.auth.logout();
           this.router.navigate(['/login']);
