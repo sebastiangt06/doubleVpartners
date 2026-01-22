@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DoubleV.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [TypeFilter(typeof(ExceptionManager))]
