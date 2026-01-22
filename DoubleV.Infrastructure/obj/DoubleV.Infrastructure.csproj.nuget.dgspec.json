@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj": {}
+    "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\DoubleV.Application.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\DoubleV.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\DoubleV.Application.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\DoubleV.Application.csproj",
         "projectName": "DoubleV.Application",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\DoubleV.Application.csproj",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\DoubleV.Application.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj"
               }
             }
           }
@@ -46,6 +46,44 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "EPPlus": {
+              "target": "Package",
+              "version": "[6.2.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.4.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.6, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Security.Cryptography.Xml": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            },
+            "System.Text.RegularExpressions": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "iTextSharp.LGPLv2.Core": {
+              "target": "Package",
+              "version": "[3.7.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -66,14 +104,14 @@
         }
       }
     },
-    "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj",
         "projectName": "DoubleV.Domain",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -104,6 +142,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -124,14 +168,14 @@
         }
       }
     },
-    "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj",
         "projectName": "DoubleV.Infrastructure",
-        "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Infrastructure\\DoubleV.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -146,11 +190,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\DoubleV.Application.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Application\\DoubleV.Application.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\DoubleV.Application.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Application\\DoubleV.Application.csproj"
               },
-              "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Co2pilot\\co2pilotbackend\\DoubleV.Domain\\DoubleV.Domain.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\DoubleVTest\\doublevbackend\\DoubleV.Domain\\DoubleV.Domain.csproj"
               }
             }
           }
@@ -170,11 +214,35 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Azure.Identity": {
+              "target": "Package",
+              "version": "[1.13.0, )"
+            },
+            "Azure.Security.KeyVault.Secrets": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "Azure.Storage.Files.DataLake": {
+              "target": "Package",
+              "version": "[12.22.0, )"
+            },
+            "LinqKit.Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.6, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.Extensions.Caching.Memory": {
               "target": "Package",
               "version": "[9.0.0, )"
             },
@@ -185,6 +253,22 @@
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
               "version": "[9.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Security.Cryptography.Xml": {
+              "target": "Package",
+              "version": "[4.7.1, )"
+            },
+            "System.Text.RegularExpressions": {
+              "target": "Package",
+              "version": "[4.3.1, )"
             }
           },
           "imports": [

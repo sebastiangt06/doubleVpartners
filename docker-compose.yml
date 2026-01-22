@@ -1,0 +1,47 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: doublev-sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+      MSSQL_SA_PASSWORD: "${SA_PASSWORD}"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+
+  db-init:
+    image: mcr.microsoft.com/mssql-tools:latest
+    container_name: doublev-db-init
+    depends_on:
+      - sqlserver
+    environment:
+      SA_PASSWORD: "${SA_PASSWORD}"
+    volumes:
+      # 👇 Ajusta esta ruta si tu script está en otro lugar
+      - ./DoubleV.Infrastructure/Database/scripts:/scripts:ro
+    entrypoint: ["/bin/bash", "-lc"]
+    command: >
+      "
+      set -e;
+
+      SQLCMD=/opt/mssql-tools18/bin/sqlcmd;
+      if [ ! -x \"$$SQLCMD\" ]; then SQLCMD=/opt/mssql-tools/bin/sqlcmd; fi;
+
+      echo \"Using $$SQLCMD\";
+      echo 'Waiting for SQL Server...';
+
+      until $$SQLCMD -S sqlserver -U sa -P \"$${SA_PASSWORD}\" -C -Q \"SELECT 1\" >/dev/null 2>&1; do
+        sleep 2;
+      done;
+
+      echo 'Running init script...';
+      $$SQLCMD -S sqlserver -U sa -P \"$${SA_PASSWORD}\" -C -i /scripts/1_schema.sql
+
+      echo 'Done.';
+      "
+    restart: "no"
+
+volumes:
+  sqlserver_data:

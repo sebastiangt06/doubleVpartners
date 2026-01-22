@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DoubleV.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fcf096e0cb516c08f039af14ece97e93cd54352")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de2419f16908a36f1e70a936389b4a5d612a0995")]
 [assembly: System.Reflection.AssemblyProductAttribute("DoubleV.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DoubleV.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
