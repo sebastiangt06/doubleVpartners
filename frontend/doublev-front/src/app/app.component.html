@@ -1,0 +1,35 @@
+<div class="min-h-screen bg-slate-50 text-slate-900">
+  <header class="border-b bg-white">
+    <div class="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold">
+          DV
+        </div>
+        <div>
+          <div class="font-semibold leading-5">DoubleV Test</div>
+          <div class="text-xs text-slate-500">Angular + .NET</div>
+        </div>
+      </div>
+
+      <nav class="flex items-center gap-2">
+        <a routerLink="/register" class="px-3 py-2 rounded-lg text-sm hover:bg-slate-100">Registro</a>
+        <a routerLink="/login" class="px-3 py-2 rounded-lg text-sm hover:bg-slate-100">Login</a>
+        <a *ngIf="auth.isLoggedIn()" routerLink="/persons" class="px-3 py-2 rounded-lg text-sm hover:bg-slate-100">
+          Personas
+        </a>
+
+        <button
+          *ngIf="auth.isLoggedIn()"
+          (click)="logout()"
+          class="px-3 py-2 rounded-lg text-sm bg-slate-900 text-white hover:bg-slate-800"
+        >
+          Salir
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-5xl px-4 py-8">
+    <router-outlet></router-outlet>
+  </main>
+</div>

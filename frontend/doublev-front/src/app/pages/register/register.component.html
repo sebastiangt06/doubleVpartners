@@ -1,0 +1,79 @@
+<div class="max-w-3xl mx-auto">
+  <div class="bg-white border rounded-2xl shadow-sm p-6">
+    <h1 class="text-xl font-semibold">Registro</h1>
+    <p class="text-sm text-slate-500 mt-1">Crea Persona + Usuario.</p>
+
+    <div *ngIf="error" class="mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+      {{ error }}
+    </div>
+    <div *ngIf="success" class="mt-4 rounded-xl border border-green-200 bg-green-50 p-3 text-sm text-green-700">
+      {{ success }}
+    </div>
+
+    <form (ngSubmit)="submit()" class="mt-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Nombres</label>
+          <input formControlName="name" class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="Juan" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Apellidos</label>
+          <input formControlName="lastName" class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="Pérez" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Tipo identificación</label>
+          <select formControlName="identificationType"
+                  class="w-full rounded-xl border px-3 py-2 bg-white focus:ring-2 focus:ring-slate-300">
+            <option value="CC">CC</option>
+            <option value="CE">CE</option>
+            <option value="NIT">NIT</option>
+            <option value="PAS">PAS</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Número identificación</label>
+          <input formControlName="identification"
+                 class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="123456789" />
+        </div>
+
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input formControlName="email" type="email"
+                 class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="correo@ejemplo.com" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Usuario</label>
+          <input formControlName="userName"
+                 class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="juanp" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Contraseña</label>
+          <input formControlName="pass" type="password"
+                 class="w-full rounded-xl border px-3 py-2 focus:ring-2 focus:ring-slate-300"
+                 placeholder="Admin123!" />
+          <p class="text-xs text-slate-500 mt-1">Mínimo 6 caracteres.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex items-center gap-3">
+        <button type="submit"
+                [disabled]="loading"
+                class="rounded-xl bg-slate-900 text-white px-5 py-2.5 hover:bg-slate-800 disabled:opacity-60">
+          {{ loading ? 'Creando...' : 'Crear usuario' }}
+        </button>
+
+        <a routerLink="/login" class="text-sm text-slate-700 hover:underline">Ya tengo cuenta</a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="max-w-md mx-auto">
+  <div class="bg-white border rounded-2xl shadow-sm p-6">
+    <h1 class="text-xl font-semibold">Iniciar sesión</h1>
+    <p class="text-sm text-slate-500 mt-1">Ingresa tu usuario y contraseña.</p>
+
+    <div *ngIf="error" class="mt-4 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+      {{ error }}
+    </div>
+
+    <form (ngSubmit)="submit()" class="mt-6 space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-1">Usuario</label>
+        <input
+          type="text"
+          formControlName="userName"
+          class="w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+          placeholder="usuario"
+        />
+        <p *ngIf="form.get('userName')?.touched && form.get('userName')?.invalid" class="text-xs text-red-600 mt-1">
+          Usuario requerido.
+        </p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">Contraseña</label>
+        <input
+          type="password"
+          formControlName="password"
+          class="w-full rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+          placeholder="••••••••"
+        />
+        <p *ngIf="form.get('password')?.touched && form.get('password')?.invalid" class="text-xs text-red-600 mt-1">
+          Contraseña requerida.
+        </p>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="loading"
+        class="w-full rounded-xl bg-slate-900 text-white py-2.5 hover:bg-slate-800 disabled:opacity-60"
+      >
+        {{ loading ? 'Ingresando...' : 'Entrar' }}
+      </button>
+
+      <p class="text-sm text-slate-600 text-center">
+        ¿No tienes cuenta?
+        <a routerLink="/register" class="font-medium text-slate-900 hover:underline">Regístrate</a>
+      </p>
+    </form>
+  </div>
+</div>
